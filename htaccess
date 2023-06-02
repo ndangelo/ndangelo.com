@@ -1,7 +1,17 @@
-DirectoryIndex index.html
-RewriteEngine On
-RewriteCond %{HTTPS} on
-RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
-RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
-RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
-RewriteRule (.*) https://ndangelo.com/$1 [R=301,L]
+#
+# Archivarix Loader rules
+#
+DirectoryIndex index.html index.htm index.php
+# disable directory listing for security reasons
+Options -Indexes
+
+# redirect all requests to index.php loader
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.php$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.php [L]
+</IfModule>
+
