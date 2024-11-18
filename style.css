@@ -30,14 +30,14 @@
 
 }
 
-/* facebook button class*/
+/* facebook button class
 .facebookBtn{
     background: #4060A5;
 }
 
-.facebookBtn:before{ /* use :before to add the relevant icons */
+.facebookBtn:before{ /* use :before to add the relevant icons 
     font-family: "FontAwesome";
-    content: "\f09a"; /* add facebook icon */
+    content: "\f09a"; /* add facebook icon 
 }
 
 .facebookBtn:hover{
@@ -45,14 +45,14 @@
     background: #fff;
 }
 
-/* twitter button class*/
+/* twitter button class
 .twitterBtn{
     background: #00ABE3;
 }
 
 .twitterBtn:before{
       font-family: "FontAwesome";
-      content: "\f099"; /* add twitter icon */
+      content: "\f099"; /* add twitter icon 
 }
 
 .twitterBtn:hover{
@@ -60,14 +60,14 @@
       background: #fff;
 }
 
-/* google plus button class*/
+/* google plus button class
 .googleplusBtn{
     background: #e64522;
 }
 
 .googleplusBtn:before{
       font-family: "FontAwesome";
-      content: "\f0d5"; /* add googleplus icon */
+      content: "\f0d5"; /* add googleplus icon 
 }
 
 .googleplusBtn:hover{
@@ -75,14 +75,14 @@
       background: #fff;
 }
 
-/* linkedin button class*/
+/* linkedin button class
 .linkedinBtn{
     background: #0094BC;
 }
 
 .linkedinBtn:before{
       font-family: "FontAwesome";
-      content: "\f0e1"; /* add linkedin icon */
+      content: "\f0e1"; /* add linkedin icon
 }
 
 .linkedinBtn:hover{
@@ -90,14 +90,14 @@
       background: #fff;
 }
 
-/* pinterest button class*/
+/* pinterest button class
 .pinterestBtn{
     background: #cb2027;
 }
 
 .pinterestBtn:before{
       font-family: "FontAwesome";
-      content: "\f0d2"; /* add pinterest icon */
+      content: "\f0d2"; /* add pinterest icon
 }
 
 .pinterestBtn:hover{
@@ -105,14 +105,14 @@
       background: #fff;
 }
 
-/* tumblr button class*/
+/* tumblr button class
 .tumblrBtn{
     background: #3a5876;
 }
 
 .tumblrBtn:before{
       font-family: "FontAwesome";
-      content: "\f173"; /* add tumblr icon */
+      content: "\f173"; /* add tumblr icon 
 }
 
 .tumblrBtn:hover{
@@ -120,20 +120,20 @@
       background: #fff;
 }
 
-/* rss button class*/
+/* rss button class
 .rssBtn{
     background: #e88845;
 }
 
 .rssBtn:before{
       font-family: "FontAwesome";
-      content: "\f09e"; /* add rss icon */
+      content: "\f09e"; /* add rss icon 
 }
 
 .rssBtn:hover{
       color: #e88845;
       background: #fff;
-}
+}*/
 
 
 body {
