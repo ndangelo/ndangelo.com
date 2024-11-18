@@ -1,75 +1,333 @@
+
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>Nicholas D'Angelo</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-
-
-</head>
-
-<!-- partial:index.partial.html -->
-
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7GDM3D9SD5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7GDM3D9SD5');
-</script>
-
+ 
   <meta charset="UTF-8">
   <title>Nicholas D'Angelo</title>
   
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,300,700' rel='stylesheet' type='text/css'>
-</head>
-<body>
-  <div class="wrapper">
 
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+
+<style>
+    #social {
+      margin: 20px 10px;
+      text-align: center;
+    }
+    
+    .smGlobalBtn{ /* global button class */
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        padding: 0px;
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+        font-size: 22px;
+        font-weight: normal;
+        line-height: 2em;
+        border-radius: 25px;
+        -moz-border-radius:25px;
+        -webkit-border-radius:25px;
+      z-index: 1;
+    }
+    
+    /* facebook button class*/
+    .facebookBtn{
+        background: #4060A5;
+    }
+    
+    .facebookBtn:before{ /* use :before to add the relevant icons */
+        font-family: "FontAwesome";
+        content: "\f09a"; /* add facebook icon */
+    }
+    
+    .facebookBtn:hover{
+        color: #4060A5;
+        background: #fff;
+    }
+    
+    /* twitter button class*/
+    .twitterBtn{
+        background: #00ABE3;
+    }
+    
+    .twitterBtn:before{
+          font-family: "FontAwesome";
+          content: "\f099"; /* add twitter icon */
+    }
+    
+    .twitterBtn:hover{
+          color: #00ABE3;
+          background: #fff;
+    }
+    
+    /* google plus button class*/
+    .googleplusBtn{
+        background: #e64522;
+    }
+    
+    .googleplusBtn:before{
+          font-family: "FontAwesome";
+          content: "\f0d5"; /* add googleplus icon */
+    }
+    
+    .googleplusBtn:hover{
+          color: #e64522;
+          background: #fff;
+    }
+    
+    /* linkedin button class*/
+    .linkedinBtn{
+        background: #0094BC;
+    }
+    
+    .linkedinBtn:before{
+          font-family: "FontAwesome";
+          content: "\f0e1"; /* add linkedin icon */
+    }
+    
+    .linkedinBtn:hover{
+          color: #0094BC;
+          background: #fff;
+    }
+    
+    /* pinterest button class*/
+    .pinterestBtn{
+        background: #cb2027;
+    }
+    
+    .pinterestBtn:before{
+          font-family: "FontAwesome";
+          content: "\f0d2"; /* add pinterest icon */
+    }
+    
+    .pinterestBtn:hover{
+          color: #cb2027;
+          background: #fff;
+    }
+    
+    /* tumblr button class*/
+    .tumblrBtn{
+        background: #3a5876;
+    }
+    
+    .tumblrBtn:before{
+          font-family: "FontAwesome";
+          content: "\f173"; /* add tumblr icon */
+    }
+    
+    .tumblrBtn:hover{
+          color: #3a5876;
+          background: #fff;
+    }
+    
+    /* rss button class*/
+    .rssBtn{
+        background: #e88845;
+    }
+    
+    .rssBtn:before{
+          font-family: "FontAwesome";
+          content: "\f09e"; /* add rss icon */
+    }
+    
+    .rssBtn:hover{
+          color: #e88845;
+          background: #fff;
+    }
+    
+    
+    body {
+      margin-left: 0 auto;
+       margin-right: 0 auto;
+      margin-top: 0 auto;
+      margin-bottom: auto;
+      font-size:12px;
+    }
+    
+    .wrapper{
+    
+      width:300px;
+    /* border: solid #ccc 2px;*/
+      height:600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: auto;
+      margin-top: -200px;
+    }
+    
+    .navigation{
+      width:300px;
+    /* border: solid #ccc 2px;*/
+      height:700px;
+      margin-top: 20px;
+      margin-bottom: 30%;
+    
+    }
+    
+    
+    .row{
+      width:200px;
+      /*border: solid #ccc 2px;*/
+      height:30px;
+      padding 2px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top:20px;
+    }
+    
+    .logo{
+     /* font-size: 1.2em;
+      color: #646464;*/
+      text-align:center;
+      vertical-align: middle;
+    
+     
+    
+    }
+    
+    .links{
+      font-family: 'Raleway', sans-serif;
+      text-transform: uppercase;
+      font-size: .85em;
+      color: #646464;
+      width:150px;
+    /* border: solid #ccc 2px;*/
+      height:20px;
+      margin-left: auto;
+      margin-right: auto;
+       margin-bottom: 20px;
+      text-align:center;
+      vertical-align: middle;
+    padding: 10px;
+     margin-top:30px;
+       background-color: #FFFFFF;
+    
+    }
+    
+    a.topnav 
+    {font-family: 'Raleway', sans-serif;
+       background-color: #FFFFFF;
+      text-decoration: none;
+    }
+    
+    a.topnav:link  
+    {color: #252525;
+     background-color: #FFFFFF;
+    }
+    
+    a.topnav:active  { color:#252525;
+     background-color: #FFFFFF;
+    }
+    
+    a.topnav:visited  {color: #252525;
+     background-color: #FFFFFF;
+    }
+    
+    a.topnav:hover  
+    {color: #0072bc;
+       background-color: #FFFFFF;
+    
+    }
+    
+    .footer {
+        font-family: 'Raleway', sans-serif;
+      font-size: .9em;
+      color: #a0a0a0;
+      width:150px;
+    /* border: solid #ccc 2px;*/
+      height:20px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align:center;
+      vertical-align: middle;
+    padding: 10px;
+      
+      
+    }
+    
+    #logo-link
+    {
+    
+      text-decoration:none;
+    margin:0 auto;
+      background-image:url(http://www.nicholasdangelo.com/images/connect_146.png);
+      background-position:0px 0px;
+    }
+    #logo-link:hover,#logo-link:active  
+    { background-position:0px 46px; }
+    
+    #lineup {
+        float: left;
+        position:relative;
+        width: 205px;
+        max-height: 40px;
+        border: 0px;
+        padding: 1px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        border-color: #fff;
+        border-style: solid;
+        display: inline-block;
+        }
+    
+    </style>
+  </head>
+<body>
+
+  <div class="cheat">
+
+
+  
+  
+  <div class="wrapper">
+ 
     <div class="row">
 
       
     </div>
       <div class="navigation">
-        <br> <br>
              <div class="logo">
-        <img src="https://s3.amazonaws.com/image-control-storage/blog-images/2017/09/27184054/nd_logo_blog-2.png" width="100px" />
+        <img src="http://s3.amazonaws.com/image-control-storage/blog-images/2017/09/27184054/nd_logo_blog-2.png" width="100px" />
         </div>
-      
+  
+  
 
         <div class="links">
-            <a class="topnav" target="_blank" href="https://nd-student-work.myportfolio.com">student work</a>
+          <a class="topnav" target="_blank" href="http://studentwork.ndangelo.com">student work</a>
     </div>
                 <div class="links">
-                    <a class="topnav" target="_blank" href="ndangelo_resume_2022.pdf">resume</a>
+          <a class="topnav" target="_blank" href="https://s3.amazonaws.com/image-control-storage/ndangelo_resume_2019.pdf">resume</a>
     </div>
           
    <div class="links">   
           <a class="topnav" target="_blank" href="https://www.nicholasdangelo.com">Creative Endeavours</a>
     </div>
         <br/>
-<ul class="social" style="display:inline;">
-    <i class="fa fa-facebook-square" style="display:inline" href="#" ></i>
-			<i class="fa fa-twitter" style="inline" href="#" ></i>
-			<i class="fa fa-linkedin-square" style="inline" href="https://www.linkedin.com/in/ndangelo/" ></a>
-			<i class="fa fa-instagram" style="inline" href="https://www.instagram.com/ndangelo_artist/"></a>
+<div id="social"><a class="facebookBtn smGlobalBtn" href="#" ></a>
+			<a class="twitterBtn smGlobalBtn" href="#" ></a>
+			<a class="googleplusBtn smGlobalBtn" href="#" ></a>
+			<a class="linkedinBtn smGlobalBtn" href="#" ></a>
+			<a class="pinterestBtn smGlobalBtn" href="#" ></a>
 
-</ul>
+		</div>
 
 
 
 
 
 <div><br/><p align="center">
-
+<a href='http://www.greengeeks.com' title='Web Hosting'><img src='https://ads.greengeeks.com/Green_15.png' align="center" border='0' ></a></p>
   <br/><p align="center" style="font-family: 'Raleway', sans-serif; color: #cccccc;">
-  © 2022 Nicholas D'Angelo</p><br/><br/><br/>
+  © 2019 Nicholas D'Angelo</p><br/><br/><br/>
 
       </div>
 
@@ -84,9 +342,4 @@
   
   
 
-</html>
-<!-- partial -->
-  
-
-</body>
 </html>
