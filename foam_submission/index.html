@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Color Pinhole Series by Nicholas D’Angelo.">
+<title>The Color Pinhole Series — Nicholas D’Angelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#f09f1f;--orange-dark:#ba3e01;--blue:#79b2d4;--blue-dark:#59a2ce;--text:#222;--gray:#999;--line:#ccc}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:125px}
+body{margin:0;background:#fff;color:var(--text);font-family:'Montserrat',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--orange);text-decoration:none}a:hover{text-decoration:underline}
+.site{max-width:1280px;margin:0 auto;padding:0 26px}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);padding:22px 30px}
+.nav{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-size:25px;font-weight:400;white-space:nowrap;letter-spacing:0}
+.logo .first{color:#f09f1f}.logo .last{color:#79b2d4;font-weight:400}
+nav{display:flex;flex-wrap:wrap;gap:0}
+nav a{display:inline-block;color:#999;font-size:12px;padding:0 8px}
+nav a:hover{color:#222;text-decoration:none}
+.hero{padding:54px 0 28px}
+.hero img{display:block;width:880px;max-width:100%;height:auto;margin:0 auto;background:#fafafa}
+.hero-meta{width:min(880px,100%);margin:10px auto 0;display:flex;justify-content:space-between;gap:20px;font-size:.82rem;color:var(--gray)}
+.hero-meta span:first-child{color:var(--orange)}
+.intro{max-width:850px;margin:28px auto 62px;text-align:center}
+.intro p{margin:0;color:var(--gray);font-size:1.05rem;line-height:1.8}
+.section-title{width:80%;margin:0 auto 44px;padding:22px 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;text-transform:uppercase;letter-spacing:.2rem;font-size:2.05rem;font-weight:300;color:var(--orange-dark)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:54px 34px}
+.work{margin:0;min-width:0}
+.work button{display:block;width:100%;border:0;padding:0;background:#fafafa;cursor:zoom-in}
+.work img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#fafafa;transition:opacity .25s ease}
+.work button:hover img{opacity:.84}
+figcaption{padding:10px 2px 0;display:flex;flex-direction:column;gap:1px}
+figcaption span{color:var(--blue);font-size:1rem;font-style:italic;font-weight:500}
+figcaption small{color:var(--gray);font-size:.76rem;letter-spacing:.03em}
+section.info{padding:76px 0 0}
+.statement{max-width:850px;margin:0 auto}
+.statement p{margin:0 auto 20px;color:var(--gray);line-height:1.8}
+.statement p:last-child{margin-bottom:0}
+.contact{text-align:center;padding:80px 0 55px}
+.contact a{font-size:1.05rem}
+footer{border-top:1px solid var(--line);padding:30px 0 60px;text-align:center;color:#bbb;font-size:.75rem}
+.lightbox{display:none;position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+.lightbox.open{display:flex}.lightbox img{max-width:94vw;max-height:92vh;object-fit:contain}
+.lightbox .close{position:absolute;top:12px;right:24px;border:0;background:none;color:#fff;font-size:2.4rem;cursor:pointer}
+@media(max-width:800px){body{font-size:16px}.site{padding:0 22px}header{padding:14px 22px}.nav{align-items:flex-start;flex-direction:column;gap:4px}.logo{font-size:1.7rem}nav{width:100%;display:flex;flex-wrap:wrap}nav a{font-size:.76rem;padding:5px 10px 5px 0}.hero{padding-top:28px}.hero-meta{font-size:.73rem}.intro p{font-size:1rem}.grid{grid-template-columns:1fr;gap:42px}.section-title{width:100%;font-size:1.55rem;letter-spacing:.14rem}section.info{padding-top:60px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="site nav">
+    <div class="logo"><span class="first">nicholas</span>&nbsp;<span class="last">d'angelo</span></div>
+    <nav aria-label="Primary navigation">
+      <a href="#series">series</a><a href="#work">images</a><a href="#statement">artist statement</a><a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+<main class="site">
+  <section class="hero" id="series" aria-label="The Color Pinhole Series">
+    <img src="images/color-pinhole-01.jpg" alt="The Color Pinhole Series by Nicholas D’Angelo">
+    <div class="hero-meta"><span>The Color Pinhole Series</span><span>Nicholas D’Angelo · Photography</span></div>
+  </section>
+  <section class="intro" aria-label="Series statement">
+    <p>The Color Pinhole Series explores movement, perception, and emotional expression through blur, motion, and abstraction. The images capture fragmented moments that shift between representation and distortion, suggesting instability, tension, and transformation. Presented together, they form a visual sequence examining emotion and the changing nature of perception.</p>
+  </section>
+  <section id="work" aria-label="Selected images">
+    <h1 class="section-title">the color pinhole series</h1>
+    <div class="grid">
+      <figure class="work"><button type="button" data-full="images/color-pinhole-01.jpg" aria-label="Enlarge image 1"><img src="images/color-pinhole-01.jpg" alt="The Color Pinhole Series, image 1" loading="eager"></button><figcaption><span>The Color Pinhole Series</span><small>01 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-02.jpg" aria-label="Enlarge image 2"><img src="images/color-pinhole-02.jpg" alt="The Color Pinhole Series, image 2" loading="eager"></button><figcaption><span>The Color Pinhole Series</span><small>02 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-03.jpg" aria-label="Enlarge image 3"><img src="images/color-pinhole-03.jpg" alt="The Color Pinhole Series, image 3" loading="lazy"></button><figcaption><span>The Color Pinhole Series</span><small>03 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-04.jpg" aria-label="Enlarge image 4"><img src="images/color-pinhole-04.jpg" alt="The Color Pinhole Series, image 4" loading="lazy"></button><figcaption><span>The Color Pinhole Series</span><small>04 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-05.jpg" aria-label="Enlarge image 5"><img src="images/color-pinhole-05.jpg" alt="The Color Pinhole Series, image 5" loading="lazy"></button><figcaption><span>The Color Pinhole Series</span><small>05 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-06.jpg" aria-label="Enlarge image 6"><img src="images/color-pinhole-06.jpg" alt="The Color Pinhole Series, image 6" loading="lazy"></button><figcaption><span>The Color Pinhole Series</span><small>06 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-07.jpg" aria-label="Enlarge image 7"><img src="images/color-pinhole-07.jpg" alt="The Color Pinhole Series, image 7" loading="lazy"></button><figcaption><span>The Color Pinhole Series</span><small>07 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-08.jpg" aria-label="Enlarge image 8"><img src="images/color-pinhole-08.jpg" alt="The Color Pinhole Series, image 8" loading="lazy"></button><figcaption><span>The Color Pinhole Series</span><small>08 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-09.jpg" aria-label="Enlarge image 9"><img src="images/color-pinhole-09.jpg" alt="The Color Pinhole Series, image 9" loading="lazy"></button><figcaption><span>The Color Pinhole Series</span><small>09 / 10</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/color-pinhole-10.jpg" aria-label="Enlarge image 10"><img src="images/color-pinhole-10.jpg" alt="The Color Pinhole Series, image 10" loading="lazy"></button><figcaption><span>The Color Pinhole Series</span><small>10 / 10</small></figcaption></figure>
+    </div>
+  </section>
+  <section class="info" id="statement" aria-label="Artist statement">
+    <h2 class="section-title">artist statement</h2>
+    <div class="statement">
+      <p>My work explores action, movement, and emotional states through ethereal imagery and blurred motion, creating two-dimensional narratives that exist between perception and abstraction. Using my own body, gestures, and experiences as source material, I construct images that convey both physical energy and psychological tension. The resulting works suggest instability, transformation, and the fluid nature of memory and emotion, often occupying a space between recognition and ambiguity.</p>
+      <p>I am interested in how emotions can be difficult to define or interpret. Emotional experiences are layered, shifting, and influenced by memory, environment, and perception. Through soft focus, distortion, and motion, my work examines these unstable states and reflects the disorientation that can emerge from the speed and intensity of contemporary life. The blurred image becomes both a visual language and a metaphor for uncertainty, vulnerability, and the fragmentation of experience.</p>
+    </div>
+  </section>
+  <section class="contact" id="contact"><a href="https://nicholasdangelo.com">nicholasdangelo.com</a><br><a href="https://www.instagram.com/ndangelo_artist/">@ndangelo_artist</a></section>
+  <footer>© Nicholas D’Angelo · All artwork and text © Nicholas D’Angelo</footer>
+</main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photograph"><button class="close" type="button" aria-label="Close image">×</button><img src="" alt=""></div>
+<script>
+const lightbox=document.getElementById('lightbox'), lightboxImg=lightbox.querySelector('img');
+document.querySelectorAll('.work button').forEach(button=>button.addEventListener('click',()=>{lightboxImg.src=button.dataset.full;lightboxImg.alt=button.querySelector('img').alt;lightbox.classList.add('open')}));
+function closeLightbox(){lightbox.classList.remove('open');lightboxImg.src=''}
+lightbox.addEventListener('click',e=>{if(e.target===lightbox||e.target.classList.contains('close'))closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+</script>
+</body>
+</html>
