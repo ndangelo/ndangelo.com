@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A five-image photographic series by Nicholas D’Angelo exploring movement, gesture, and the uncertain boundary between body and image.">
+<title>Nicholas D'Angelo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#f09f1f;--orange-dark:#ba3e01;--blue:#79b2d4;--blue-dark:#59a2ce;--text:#222;--gray:#999;--line:#ccc}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:125px}
+body{margin:0;background:#fff;color:var(--text);font-family:'Montserrat',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--orange);text-decoration:none}a:hover{text-decoration:underline}
+.site{max-width:1280px;margin:0 auto;padding:0 26px}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);padding:22px 30px}
+.nav{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-size:25px;font-weight:400;white-space:nowrap;letter-spacing:0}
+.logo .first{color:#f09f1f}.logo .last{color:#79b2d4;font-weight:400}
+nav{display:flex;flex-wrap:wrap;gap:0}
+nav a{display:inline-block;color:#999;font-size:12px;padding:0 8px}
+nav a:hover{color:#222;text-decoration:none}
+.hero{padding:54px 0 28px}
+.hero img{display:block;width:100%;max-width:100%;height:auto;max-height:none;object-fit:contain;margin:0 auto;background:#fafafa}
+.hero-meta{width:100%;margin:10px auto 0;display:flex;justify-content:space-between;gap:20px;font-size:.82rem;color:var(--gray)}
+.hero-meta span:first-child{color:var(--orange)}
+.intro{max-width:850px;margin:28px auto 62px;text-align:center}
+.intro p{margin:0;color:var(--gray);font-size:1.05rem;line-height:1.8}
+.section-title{width:80%;margin:0 auto 44px;padding:22px 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;text-transform:uppercase;letter-spacing:.2rem;font-size:2.05rem;font-weight:300;color:var(--orange-dark)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:54px 34px}
+.work{margin:0;min-width:0}
+.work button{display:block;width:100%;border:0;padding:0;background:#fafafa;cursor:zoom-in}
+.work img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;background:#fafafa;transition:opacity .25s ease}
+.work button:hover img{opacity:.84}
+figcaption{padding:10px 2px 0;display:flex;flex-direction:column;gap:1px}
+figcaption span{color:var(--blue);font-size:1rem;font-style:italic;font-weight:500}
+figcaption small{color:var(--gray);font-size:.76rem;letter-spacing:.03em}
+section.info{padding:76px 0 0}
+.statement{max-width:850px;margin:0 auto}
+.statement p{margin:0 auto 20px;color:var(--gray);line-height:1.8}
+.statement p:last-child{margin-bottom:0}
+.bio{max-width:850px;margin:34px auto 0}
+.bio p{margin:0;color:var(--gray);line-height:1.8}
+.contact{text-align:center;padding:80px 0 55px}
+.contact a{font-size:1.05rem}
+.contact .submission{display:block;margin-top:12px;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:30px 0 60px;text-align:center;color:#bbb;font-size:.75rem}
+.lightbox{display:none;position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.94);align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+.lightbox.open{display:flex}.lightbox img{max-width:94vw;max-height:92vh;object-fit:contain}
+.lightbox .close{position:absolute;top:12px;right:24px;border:0;background:none;color:#fff;font-size:2.4rem;cursor:pointer}
+@media(max-width:800px){body{font-size:16px}.site{padding:0 22px}header{padding:14px 22px}.nav{align-items:flex-start;flex-direction:column;gap:4px}.logo{font-size:1.7rem}nav{width:100%;display:flex;flex-wrap:wrap}nav a{font-size:.76rem;padding:5px 10px 5px 0}.hero{padding-top:28px}.hero-meta{font-size:.73rem}.intro p{font-size:1rem}.grid{grid-template-columns:1fr;gap:42px}.section-title{width:100%;font-size:1.55rem;letter-spacing:.14rem}section.info{padding-top:60px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="site nav">
+    <div class="logo"><span class="first">nicholas</span>&nbsp;<span class="last">d'angelo</span></div>
+    <nav aria-label="Primary navigation">
+      <a href="#series">series</a><a href="#work">images</a><a href="#project">project statement</a><a href="#bio">bio</a><a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+<main class="site">
+  <section class="hero" id="series" aria-label="Five-image photographic series">
+    <img src="images/wrestling-in-red.jpg" alt="Photograph from a five-image series by Nicholas D’Angelo">
+    <div class="hero-meta"><span>Photographic Series · Five Images</span><span>Nicholas D’Angelo · Photography</span></div>
+  </section>
+  <section class="intro" aria-label="Series introduction">
+    <p>A photographic series exploring the body in motion, the instability of perception, and the space between physical gesture and psychological experience.</p>
+  </section>
+  <section id="work" aria-label="Selected images">
+    <h1 class="section-title">selected images</h1>
+    <div class="grid">
+      <figure class="work"><button type="button" data-full="images/looking-right.jpg" aria-label="Enlarge Looking Right"><img src="images/looking-right.jpg" alt="Looking Right, photograph by Nicholas D’Angelo" loading="eager"></button><figcaption><span>Looking Right</span><small>01 / 05</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/moving.jpg" aria-label="Enlarge Moving"><img src="images/moving.jpg" alt="Moving, photograph by Nicholas D’Angelo" loading="eager"></button><figcaption><span>Moving</span><small>02 / 05</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/wrestling-ghosts.jpg" aria-label="Enlarge Wrestling Ghosts"><img src="images/wrestling-ghosts.jpg" alt="Wrestling Ghosts, photograph by Nicholas D’Angelo" loading="lazy"></button><figcaption><span>Wrestling Ghosts</span><small>03 / 05</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/wrestling-in-red.jpg" aria-label="Enlarge Wrestling in Red"><img src="images/wrestling-in-red.jpg" alt="Wrestling in Red, photograph by Nicholas D’Angelo" loading="lazy"></button><figcaption><span>Wrestling in Red</span><small>04 / 05</small></figcaption></figure>
+      <figure class="work"><button type="button" data-full="images/yep-another.jpg" aria-label="Enlarge Untitled"><img src="images/yep-another.jpg" alt="Untitled, photograph by Nicholas D’Angelo" loading="lazy"></button><figcaption><span>Untitled</span><small>05 / 05</small></figcaption></figure>
+    </div>
+  </section>
+  <section class="info" id="project" aria-label="Project statement">
+    <h2 class="section-title">project statement</h2>
+    <div class="statement">
+      <p>This series explores movement, gesture, and emotional expression through blurred figures and ambiguous encounters. Bodies overlap, shift, and dissolve into their surroundings, resisting a fixed reading of what is happening. The photographs hold a space between action and stillness, presence and absence, recognition and abstraction.</p>
+      <p>Made through an experimental approach to 35mm photography and image-making, the work uses softness, grain, shadow, and color to draw attention away from literal description and toward the felt experience of a moment. Rather than explaining a single narrative, the five images invite viewers to sit with uncertainty and consider how movement alters the way a body—and an emotion—can be seen.</p>
+    </div>
+  </section>
+  <section class="info" id="bio" aria-label="Artist biography">
+    <h2 class="section-title">artist bio</h2>
+    <div class="bio">
+      <p>Nicholas D’Angelo is an artist and educator whose photographic practice explores action, movement, perception, and emotional states. Working with 35mm film, scanned negatives, and digital image manipulation, he creates atmospheric photographs that move between representation and abstraction. He is an Assistant Professor of Art + Media + Design at East Stroudsburg University of Pennsylvania. His work has been exhibited nationally and internationally, including presentations at Sarah Spurgeon Gallery, the Cultural Center of Cape Cod, Fotofoto Gallery, and Glasgow Gallery of Photography.</p>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <a href="https://nicholasdangelo.com/">nicholasdangelo.com</a><br>
+    <a href="https://www.instagram.com/ndangelo_artist/">@ndangelo_artist</a>
+  </section>
+  <footer>© Nicholas D’Angelo · All artwork and text © Nicholas D’Angelo</footer>
+</main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photograph"><button class="close" type="button" aria-label="Close image">×</button><img src="" alt=""></div>
+<script>
+const lightbox=document.getElementById('lightbox'), lightboxImg=lightbox.querySelector('img');
+document.querySelectorAll('.work button').forEach(button=>button.addEventListener('click',()=>{lightboxImg.src=button.dataset.full;lightboxImg.alt=button.querySelector('img').alt;lightbox.classList.add('open')}));
+function closeLightbox(){lightbox.classList.remove('open');lightboxImg.src=''}
+lightbox.addEventListener('click',e=>{if(e.target===lightbox||e.target.classList.contains('close'))closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+</script>
+</body>
+</html>
