@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GitHub Asset Uploader</title>
+<style>
+:root{--bg:#f7f6f1;--ink:#24241f;--line:#d8d7ce;--lime:#d9ff67}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}main{max-width:850px;margin:auto;padding:32px 18px 60px}.eyebrow{font:700 12px ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#68685f}h1{font-size:clamp(2.4rem,7vw,4.5rem);line-height:1;letter-spacing:-.06em;margin:16px 0}h1 span{background:var(--lime);padding:0 .08em}.intro{max-width:680px;color:#56564f}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:22px}h2{font-size:1.1rem;margin:0 0 16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}label{font-weight:700;font-size:.86rem}input[type=text],input[type=password]{font:inherit;width:100%;padding:11px 12px;border:1px solid #c7c6bc;border-radius:8px}.help,.note{font-size:.82rem;color:#68685f}.drop{display:block;text-align:center;padding:25px 15px;border:2px dashed #b8b7ac;border-radius:12px;background:#fbfbf7}.drop strong{display:block;font-size:1.05rem}.drop p{margin:4px 0 12px;color:#68685f}.drop.drag{background:#f1f8dc;border-color:#758b29}.actions,.buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}button{border:0;border-radius:999px;padding:11px 16px;font-weight:700;cursor:pointer}button.primary{background:var(--lime)}button.secondary{background:#efefe8}button:disabled{opacity:.45;cursor:not-allowed}#filesList,.results{display:grid;gap:9px;margin-top:13px}.file,.result{padding:12px;border:1px solid var(--line);border-radius:10px;overflow-wrap:anywhere}.file{display:flex;justify-content:space-between;gap:12px;background:#fafaf6;font-size:.88rem}.file small{color:#68685f;white-space:nowrap}.status{white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f0e9;padding:12px;border-radius:9px;margin-top:15px;font-size:.9rem}.status.error{background:#fff0ed;color:#9e3024}.status.success{background:#edf8f0;color:#246b45}.url{display:block;font: .8rem/1.5 ui-monospace,monospace;margin:7px 0;color:#31572e;overflow-wrap:anywhere}.result-title{font-weight:750}.buttons button{font-size:.8rem;padding:8px 11px}.note{margin-top:14px}@media(max-width:600px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.panel{padding:17px}.file{flex-direction:column}}
+</style></head><body><main>
+<div class="eyebrow">ND / Asset workflow</div><h1>GitHub <span>Asset Uploader</span></h1>
+<p class="intro">Select a batch of images, upload them to a folder in your GitHub repository, and get the complete raw URL for each file—ready to paste into WordPress.</p>
+<section class="panel"><h2>01 / Repository</h2><div class="grid">
+<div class="field full"><label for="token">GitHub personal access token</label><input id="token" type="password" autocomplete="off" placeholder="github_pat_…"><div class="help">Used in this browser tab only; this page does not save or transmit it to any other service.</div></div>
+<div class="field"><label for="repo">Repository (owner/name)</label><input id="repo" type="text" value="ndangelo/amde-course-assets"></div>
+<div class="field"><label for="branch">Branch</label><input id="branch" type="text" value="main"></div>
+<div class="field full"><label for="folder">Destination folder</label><input id="folder" type="text" value="amde-350-social-design/quote-project"><div class="help">Choose a folder using Browse, or type a path manually.</div><div class="folder-tools"><button class="secondary" id="browseFolders" type="button">Browse folders</button><button class="secondary" id="useFolder" type="button">Use this folder</button></div><div id="folderBrowser" hidden><div class="crumbs" id="folderCrumbs">Repository root</div><div class="folder-tools"><button class="secondary" id="folderUp" type="button">↑ Up one level</button><button class="secondary" id="refreshFolders" type="button">Refresh</button></div><div class="folder-list" id="folderList"></div><p class="help">Choose a folder to open it. Use “Use this folder” to select the folder currently displayed as the upload destination.</p></div></div></div>
+<p class="note">Create a fine-grained token in GitHub Settings → Developer settings → Personal access tokens. Limit it to this repository and grant <b>Contents: Read and write</b>. Keep the token private.</p></section>
+<section class="panel"><h2>02 / Choose assets</h2><label class="drop" id="drop" for="files"><strong>Drop images here</strong><p>or choose multiple files from your computer</p><input id="files" type="file" multiple></label>
+<div id="filesList"></div><div class="actions"><button class="primary" id="upload" disabled>Upload &amp; generate URLs</button><button class="secondary" id="clear" type="button">Clear selection</button></div><div id="status" class="status" role="status">Ready. Choose files to begin.</div><div id="results" class="results"></div>
+<p class="note">For reliability, keep each file under 25 MiB. If a file with the same name already exists, the uploader updates that file. Uploaded files may be publicly accessible if the repository is public.</p></section></main>
+<script>
+(()=>{const $=id=>document.getElementById(id);let chosen=[];const input=$('files'),drop=$('drop'),btn=$('upload');const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const size=n=>n<1048576?Math.round(n/1024)+' KB':(n/1048576).toFixed(2)+' MB';
+function status(s,k=''){$('status').textContent=s;$('status').className='status '+k}
+function render(){ $('filesList').innerHTML=chosen.map(f=>`<div class="file"><span>${esc(f.name)}</span><small>${size(f.size)}</small></div>`).join('');btn.disabled=!chosen.length}
+function add(fs){const all=[...chosen,...Array.from(fs)],seen=new Set();chosen=all.filter(f=>{let k=[f.name,f.size,f.lastModified].join('|');if(seen.has(k))return false;seen.add(k);return true});render();status(chosen.length?chosen.length+' file(s) ready.':'Choose files to begin.')}
+input.onchange=e=>add(e.target.files);$('clear').onclick=()=>{chosen=[];input.value='';$('results').innerHTML='';render();status('Selection cleared.')};
+['dragenter','dragover'].forEach(e=>drop.addEventListener(e,x=>{x.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(e=>drop.addEventListener(e,x=>{x.preventDefault();drop.classList.remove('drag')}));drop.addEventListener('drop',e=>{if(e.dataTransfer.files)add(e.dataTransfer.files)});
+async function api(url,token,opts={}){let r=await fetch(url,{...opts,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28',...(opts.headers||{})}});let d={};try{d=await r.json()}catch{}if(!r.ok){let m=d.message||'GitHub returned HTTP '+r.status;if(r.status===401)m='Token rejected. Check that it is valid and not expired.';if(r.status===403)m='Permission denied or rate limit reached. Check Contents: Read and write access.';throw Error(m)}return d}
+function b64(file){return new Promise((ok,no)=>{let r=new FileReader();r.onerror=()=>no(Error('Could not read '+file.name));r.onload=()=>{let a=new Uint8Array(r.result),s='',chunk=32768;for(let i=0;i<a.length;i+=chunk)s+=String.fromCharCode(...a.subarray(i,Math.min(i+chunk,a.length)));ok(btoa(s))};r.readAsArrayBuffer(file)})}
+function result(name,path,repo){let raw='https://raw.githubusercontent.com/'+repo+'/'+path.split('/').map(encodeURIComponent).join('/');let el=document.createElement('div');el.className='result';el.innerHTML=`<div class="result-title">${esc(name)}</div><a class="url" target="_blank" rel="noopener noreferrer" href="${raw}">${esc(raw)}</a><div class="buttons"><button class="secondary copy">Copy raw URL</button><button class="secondary md">Copy Markdown</button><button class="secondary html">Copy HTML</button></div>`;const copy=t=>navigator.clipboard.writeText(t).then(()=>status('Copied to clipboard.','success')).catch(()=>status('Clipboard access blocked; select and copy the URL manually.','error'));el.querySelector('.copy').onclick=()=>copy(raw);el.querySelector('.md').onclick=()=>copy(`![${name}](${raw})`);el.querySelector('.html').onclick=()=>copy(`<img src="${raw}" alt="${name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">`);$('results').appendChild(el)}
+
+let browsePath='';
+function cleanPath(v){return v.trim().replace(/^\/+|\/+$/g,'')}
+function repoParts(){return $('repo').value.trim()}
+async function listFolder(path){
+ const token=$('token').value.trim(),repo=repoParts(),branch=$('branch').value.trim();
+ if(!token){status('Enter your GitHub token before browsing folders.','error');return}
+ if(!/^[^/\s]+\/[^/\s]+$/.test(repo)){status('Repository must look like owner/repository.','error');return}
+ $('folderList').innerHTML='<div class="help">Loading folders…</div>';
+ $('folderBrowser').hidden=false;
+ try{
+  const base=`https://api.github.com/repos/${repo}/contents`;
+  const url=base+(path?'/'+path.split('/').map(encodeURIComponent).join('/'):'')+'?ref='+encodeURIComponent(branch);
+  const data=await api(url,token);
+  const items=Array.isArray(data)?data:[data];
+  const dirs=items.filter(x=>x.type==='dir').sort((a,b)=>a.name.localeCompare(b.name));
+  $('folderCrumbs').textContent=path?repo+' / '+path:repo+' / (root)';
+  $('folderList').innerHTML='';
+  if(!dirs.length){$('folderList').innerHTML='<div class="help">No subfolders here. You can select this folder as your upload destination.</div>';return}
+  dirs.forEach(d=>{
+   const row=document.createElement('div');row.className='folder-item';
+   const name=document.createElement('span');name.className='folder-name';name.textContent='📁 '+d.name;
+   const open=document.createElement('button');open.type='button';open.className='secondary';open.textContent='Open →';
+   open.onclick=()=>{browsePath=path?[path,d.name].join('/'):d.name;listFolder(browsePath)};
+   row.append(name,open);$('folderList').appendChild(row);
+  });
+ }catch(e){$('folderList').innerHTML='<div class="help">Could not load folders: '+esc(e.message)+'</div>';status('Folder browsing failed: '+e.message,'error')}
+}
+$('browseFolders').addEventListener('click',()=>{browsePath=cleanPath($('folder').value);listFolder(browsePath)});
+$('refreshFolders').addEventListener('click',()=>listFolder(browsePath));
+$('folderUp').addEventListener('click',()=>{browsePath=browsePath.split('/').slice(0,-1).join('/');listFolder(browsePath)});
+$('useFolder').addEventListener('click',()=>{$('folder').value=browsePath;status('Upload destination set to: '+(browsePath||'(repository root)'),'success')});
+
+btn.onclick=async()=>{let token=$('token').value.trim(),repo=$('repo').value.trim(),branch=$('branch').value.trim(),folder=$('folder').value.trim().replace(/^\/+|\/+$/g,'');if(!token)return status('Enter a GitHub token first.','error');if(!/^[^/\s]+\/[^/\s]+$/.test(repo))return status('Repository must look like owner/repository.','error');if(!branch)return status('Enter a branch name.','error');if(!chosen.length)return status('Choose at least one file.','error');if(chosen.some(f=>f.size>25*1048576))return status('A file exceeds 25 MiB. Remove or resize it first.','error');btn.disabled=true;$('results').innerHTML='';let done=0;try{status('Checking repository access…');await api('https://api.github.com/repos/'+repo,token);for(let f of chosen){let name=f.name.replace(/[\\\\?#]/g,'_'),path=[folder,name].filter(Boolean).join('/'),url='https://api.github.com/repos/'+repo+'/contents/'+path.split('/').map(encodeURIComponent).join('/');status(`Uploading ${done+1} of ${chosen.length}: ${name}`);let sha;try{sha=(await api(url+'?ref='+encodeURIComponent(branch),token)).sha}catch(e){if(!String(e.message).includes('Not Found'))throw e}let content=await b64(f);await api(url,token,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'Upload asset: '+path,content,branch,...(sha?{sha}:{})})});result(name,path,repo);done++}status(`Finished: ${done} file(s) uploaded. Copy the raw URLs below for WordPress.`,'success')}catch(e){status('Upload stopped: '+e.message+'\\n'+done+' file(s) completed before the error. Check the results before retrying.','error')}finally{btn.disabled=!chosen.length}};
+})();
+</script></body></html>
